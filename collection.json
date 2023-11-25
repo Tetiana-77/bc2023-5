@@ -7,10 +7,21 @@
 	},
 	"item": [
 		{
-			"name": "notes",
+			"name": "GET /notes(усі нотатки)",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8000/notes",
 					"protocol": "http",
@@ -26,21 +37,21 @@
 			"response": []
 		},
 		{
-			"name": "UploadForm.html",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "GET /UploadForm.html(HTML форми для завантаження нотатки)",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8000/UploadForm.html",
 					"protocol": "http",
@@ -56,35 +67,32 @@
 			"response": []
 		},
 		{
-			"name": "upload",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 201 Created\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "POST /upload",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "formdata",
 					"formdata": [
 						{
 							"key": "note_name",
-							"value": "newnoteee",
+							"value": "note1",
 							"type": "text"
 						},
 						{
 							"key": "note",
-							"value": "hello world",
+							"value": "notatka1",
 							"type": "text"
 						}
 					]
@@ -98,25 +106,48 @@
 					"port": "8000",
 					"path": [
 						"upload"
+					],
+					"query": [
+						{
+							"key": "note_name",
+							"value": "note1",
+							"disabled": true
+						},
+						{
+							"key": "note",
+							"value": "notatka1",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "notes/newnoteee",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "GET /notes/<ім’я нотатки>",
 			"request": {
 				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8000/notes/newnoteee",
+					"raw": "http://localhost:8000/notes/note1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -124,31 +155,23 @@
 					"port": "8000",
 					"path": [
 						"notes",
-						"newnoteee"
+						"note1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "notes/newnoteee",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
+			"name": "PUT /notes/<ім’я нотатки>",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "new text",
-					"options": {
-						"raw": {
-							"language": "text"
-						}
-					}
+					"raw": "noteUPD"
 				},
 				"url": {
-					"raw": "http://localhost:8000/notes/newnoteee",
+					"raw": "http://localhost:8000/notes/note1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -156,19 +179,30 @@
 					"port": "8000",
 					"path": [
 						"notes",
-						"newnoteee"
+						"note1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "notes/newnoteee",
+			"name": "DELETE /notes/<ім’я нотатки>",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8000/notes/newnoteee",
+					"raw": "http://localhost:8000/notes/note1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -176,11 +210,14 @@
 					"port": "8000",
 					"path": [
 						"notes",
-						"newnoteee"
+						"note1"
 					]
 				}
 			},
 			"response": []
+		}
+	]
+}
 		}
 	]
 }
